@@ -1,3 +1,4 @@
+import Animal from './Animal'
 import './App.css'
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <div>
         Olá mundo!
+        <Animal/>
       </div>
     </>
   )
