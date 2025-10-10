@@ -1,51 +1,88 @@
 .animal {
-    border: 1px solid lightgray;
+    border: 1px solid #444;
     border-radius: 1em;
-    padding: 0.5em;
+    padding: 1em 1.5em;
     font-weight: 600;
-    box-shadow: 0.1em 0.1em 0.5em;
-    margin: 3px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    margin: 10px 0;
     display: grid;
-    grid-template-areas: "icone nome nome"
+    grid-template-areas:
+        "icone nome nome"
         "icone peso peso"
         "icone . extincao";
+    background: #232323;
+    align-items: center;
+    transition: transform 0.15s, box-shadow 0.15s;    
+}
+
+.animal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .animal .icone {
     grid-area: icone;
-    place-content: center;
-    font-size: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5em;
+    margin-right: 0.7em;
 }
 
 .animal .nome {
     grid-area: nome;
-    font-weight: 900;
+    color: #b0b0b0;
+    font-size: 1.1em;
+    font-weight: bold;
     font-variant: small-caps;
+    justify-self: center;
+    align-self: end;
+    margin-bottom: 0.1em;
+    text-align: center;
 }
 
 .animal .peso {
     grid-area: peso;
-    color: grey;
+    color: #b0b0b0;
+    font-size: 1em;
+    font-variant: small-caps;
+    justify-self: center;
+    align-self: start;
+    text-align: center;
 }
 
 .animal .extincao {
     grid-area: extincao;
     text-transform: uppercase;
-    background-color: darkred;
-    color: white;
+    background-color: #b71c1c;
+    color: #fff;
     font-size: 0.75em;
-    place-content: center;
+    border-radius: 0.4em;
+    padding: 0.3em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 4px rgba(183, 28, 28, 0.15);
+    font-variant: small-caps;
+    margin-left: 0.5em;
 }
 
 .animal .seguro {
     grid-area: extincao;
     text-transform: uppercase;
-    background-color: green;
-    color: white;
+    background-color: #1ec31e;
+    color: #fff;
     font-size: 0.75em;
-    place-content: center;
-}
-
-.animal .alinha {
-    gap: 5px;
+    border-radius: 0.4em;
+    padding: 0.3em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 4px rgba(30, 195, 30, 0.10);
+    font-variant: small-caps;
+    margin-left: 0.5em;
 }
