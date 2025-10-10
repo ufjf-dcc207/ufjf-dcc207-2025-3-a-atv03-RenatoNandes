@@ -1,8 +1,9 @@
 .exibicao {
     display: grid;
     grid-template-areas: "cercado cercado"
-        "inicio fim";
-    padding: 1em;
+        "inicio fim"
+        "animais animais";
+    padding: 0.5em;
     box-shadow: 0.1em 0.2em 0.2em;
 }
 
@@ -21,4 +22,11 @@
     grid-area: cercado;
     justify-content: center;
     display: flex;
+}
+
+.animais {
+    display: grid;
+    grid-area: animais;
+    gap: 0.3em;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
