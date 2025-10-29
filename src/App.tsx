@@ -2,72 +2,53 @@ import Animal from './Animal'
 import './App.css'
 import Exibicao from './Exibicao'
 
+type ExibicaoTuplaType = [string, string, string, Array<AnimalTuplaType>];
 type AnimalTuplaType = [string, string, number, boolean];
 
 function App() {
 
-  const exibicao1:AnimalTuplaType[] = [
-    ["🦁", "Leão", 190.0, false],
-    ["🦭", "Foca", 65.0, false],
-    ["🦍", "Gorila", 160.0, false]
+  const exibicoes: Array<ExibicaoTuplaType> = [
+    ["2025-10-11T08:00-03:00",
+      "2025-10-11T12:00-03:00",
+      "ICE",
+      [
+        ["🦁", "Leão", 190.0, false],
+        ["🦭", "Foca", 65.0, false],
+        ["🦍", "Gorila", 160.0, false]
+      ]
+    ],
+    ["2025-10-11T13:00-03:00",
+      "2025-10-11T18:00-03:00",
+      'ICB',
+      [
+        ["🫎", "Alce", 380.0, true],
+        ["🐻", "Urso Pardo", 600.0, false],
+        ["🐻‍❄️", "Urso Polar", 800.0, true]
+      ]
+    ]
   ];
-
-  const exibicao2:AnimalTuplaType[] = [
-    ["🫎", "Alce", 380.0, true],
-    ["🐻", "Urso Pardo", 600.0, false],
-    ["🐻‍❄️", "Urso Polar", 800.0, true]
-  ];
-
-  // const elementosAnimais1 = [];
-  // for (let i = 0; i < exibicao1.length; i++) {
-  //   elementosAnimais1.push(
-  //     <Animal
-  //       icone={exibicao1[i][0]}
-  //       nome={exibicao1[i][1]}
-  //       peso={exibicao1[i][2]}
-  //       emExtincao={exibicao1[i][3]}
-  //       key={exibicao1[i][1]}
-  //     />
-  //   );
-  // }
-
-  // const elementosAnimais2 = [];
-  // for (let i = 0; i < exibicao2.length; i++) {
-  //   elementosAnimais2.push(
-  //     <Animal
-  //       icone={exibicao2[i][0]}
-  //       nome={exibicao2[i][1]}
-  //       peso={exibicao2[i][2]}
-  //       emExtincao={exibicao2[i][3]}
-  //       key={exibicao2[i][1]}
-  //     />
-  //   );
-  // }
 
   return (
-    <>
-      <div>
-        <Exibicao inicio={new Date("2025-10-11T08:00:00-03:00")} fim={new Date("2025-10-11T12:00-03:00")} cercado='ICE - UFJF'></Exibicao>
-        Animais:
-        {exibicao1.map((tupla) => <Animal
-          key={tupla[1]}
-          icone={tupla[0]}
-          nome={tupla[1]}
-          peso={tupla[2]}
-          emExtincao={tupla[3]}
-        />)}
+    <div>
 
-        {exibicao2.map((tupla) => <Animal
-          key={tupla[1]}
-          icone={tupla[0]}
-          nome={tupla[1]}
-          peso={tupla[2]}
-          emExtincao={tupla[3]}
-        />)}
-        
-        <Exibicao inicio={new Date("2025-10-11T08:00:00-03:00")} fim={new Date("2025-10-11T12:00-03:00")} cercado='ICE - UFJF'></Exibicao>
-      </div>
-    </>
+      {exibicoes.map(ex =>
+        <Exibicao
+          key={ex[2]}
+          inicio={new Date(ex[0])}
+          fim={new Date(ex[1])}
+          cercado={ex[2]}>
+          {ex[3].map(an =>
+            <Animal
+              key={an[1]}
+              nome={an[1]}
+              icone={an[0]}
+              peso={an[2]}
+              emExtincao={an[3]}
+            />)}
+        </Exibicao>
+      )}
+
+    </div>
   )
 }
 
